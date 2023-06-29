@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tsc && node dist/index.js",
+    "start": "npx tsc && node dist/index.js",
     "test": "jest --verbose --silent",
     "test:watch": "yarn test -- --watch"
   },
