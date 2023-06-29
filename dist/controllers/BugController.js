@@ -49,6 +49,7 @@ const getBugsSearch = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const projectExists = yield ProjectModel_1.default.findOne({ id: projectId });
         const userExists = yield UserModel_1.default.findOne({ id: userId });
         const pipeline = [];
+        console.log(projectId, projectExists);
         if (projectExists) {
             pipeline.push({ $match: { project: projectExists._id } });
         }
@@ -75,7 +76,7 @@ const getBugsSearch = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }, {
             $lookup: {
                 from: 'projects',
-                localField: 'projectId',
+                localField: 'project',
                 foreignField: '_id',
                 as: 'projectDetails'
             }
