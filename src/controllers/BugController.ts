@@ -33,7 +33,6 @@ export const getBugsSearch = async (req: Request, res: Response) => {
       const projectExists = await Project.findOne({ id: projectId });
       const userExists = await User.findOne({ id: userId });
       const pipeline = [];
-      console.log(projectId, projectExists);
       if (projectExists) {
          pipeline.push({ $match: { project: projectExists._id } });
       }
